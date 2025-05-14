@@ -1,10 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
-import ClientLayout from "./client-layout"
 import SchemaMarkup from "@/components/schema-markup"
-import PerformanceOptimizer from "./performance-optimizer"
-import ChatWidget from "@/components/chat-widget"
 
 export const metadata: Metadata = {
   title: "Royalty Fence - Hurricane-Proof Fencing in Orange City, FL",
@@ -21,10 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-100">
-        <ClientLayout>{children}</ClientLayout>
+        {children}
         <SchemaMarkup />
-        <PerformanceOptimizer />
-        <ChatWidget />
       </body>
     </html>
   )

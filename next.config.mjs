@@ -14,32 +14,8 @@ const nextConfig = {
   },
   // Disable all experimental features
   experimental: {},
-  // Force the use of the Pages Router for 404s
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // Rewrite any 404 to the custom 404 page
-        {
-          source: '/:path*',
-          destination: '/404',
-          has: [
-            {
-              type: 'header',
-              key: 'x-matched-path',
-              value: '(.*)',
-            },
-          ],
-          missing: [
-            {
-              type: 'header',
-              key: 'x-middleware-rewrite',
-              value: '(.*)',
-            },
-          ],
-        },
-      ],
-    }
-  },
+  // Disable the App Router's not-found handling
+  output: 'export',
   // Add headers for additional security and performance
   async headers() {
     return [
