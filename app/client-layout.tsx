@@ -4,6 +4,7 @@ import type React from "react"
 import Analytics from "@/components/analytics"
 import ConversionTracker from "./conversion-tracker"
 import ABTestProvider from "./ab-test-provider"
+import { Suspense } from "react"
 
 export default function ClientLayout({
   children,
@@ -13,7 +14,7 @@ export default function ClientLayout({
   return (
     <>
       <ABTestProvider />
-      {children}
+      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
       <Analytics />
       <ConversionTracker />
     </>
