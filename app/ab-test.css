@@ -1,0 +1,20 @@
+/* A/B Testing CSS Variables */
+:root {
+  --cta-bg-color: #f59e0b; /* Default value */
+  --hero-headline: "Is Your Fence One Storm Away From Costly Repairs?"; /* Default value */
+}
+
+/* Apply variables to elements using data attributes */
+[data-ab-cta="true"] {
+  background: var(--cta-bg-color) !important;
+}
+
+/* For headline testing */
+[data-ab-headline="true"]::before {
+  content: var(--hero-headline);
+}
+
+/* Hide original content when using content replacement */
+[data-ab-headline="true"] > * {
+  display: none;
+}

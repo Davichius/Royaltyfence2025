@@ -1,0 +1,431 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --royal-blue: #1e40af;
+  --royal-gold: #fbbf24;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --foreground-rgb: 15, 61, 91;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
+    --primary-old: 15, 61, 91; /* Royal Blue */
+    --secondary-old: 43, 86, 112; /* Dark Blue */
+    --accent-old: 245, 158, 11; /* Royal Gold */
+    --danger-old: 220, 38, 38; /* Red-600 */
+    --success-old: 16, 185, 129; /* Emerald-500 */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  /* Improved storm animation for mobile performance */
+  .storm-animation {
+    animation: stormMove 45s linear infinite;
+    will-change: transform; /* Optimize for GPU */
+  }
+
+  @keyframes stormMove {
+    0%,
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+    25% {
+      transform: scale(1.02) translate(-1%, -0.5%); /* Reduced movement */
+    }
+    50% {
+      transform: scale(1.01) translate(1%, 0.5%);
+    }
+    75% {
+      transform: scale(1.015) translate(-0.5%, -1%);
+    }
+  }
+
+  /* Optimized lightning animation */
+  .lightning-animation {
+    animation: lightningFlash 15s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes lightningFlash {
+    0%,
+    96%,
+    100% {
+      opacity: 0;
+    }
+    97% {
+      opacity: 0.6;
+    }
+    98% {
+      opacity: 0;
+    }
+    99% {
+      opacity: 0.8;
+    }
+  }
+
+  /* Smoother shine effect */
+  @keyframes shine {
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Header animation */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Add the fadeIn animation to the keyframes section */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Add this to the keyframes section in the :root block */
+  @keyframes subtlePulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  @keyframes subtleBounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for sticky header */
+  }
+
+  /* Selection styles */
+  ::selection {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  /* Add this to the animation section in the :root block */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-subtle-pulse {
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Storm-proof components */
+  .storm-card {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:via-transparent before:to-white/10 before:-translate-x-full before:animate-shine;
+    will-change: transform; /* Performance optimization */
+  }
+
+  .hurricane-badge {
+    @apply absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse;
+  }
+
+  .wind-rating {
+    @apply inline-block bg-blue-900 text-white text-sm px-2 py-1 rounded-md ml-2;
+  }
+
+  /* Typography enhancements */
+  .gradient-heading {
+    @apply bg-gradient-to-r from-royal-blue to-blue-800 bg-clip-text text-transparent;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Interactive elements */
+  .hover-tilt {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:-rotate-1;
+  }
+
+  .btn-storm {
+    @apply relative overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .btn-storm:after {
+    @apply content-[''] absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-storm:hover:after {
+    @apply opacity-100;
+  }
+
+  /* Animations */
+  .animate-slideDown {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  /* Mobile menu */
+  .mobile-menu-item {
+    @apply block py-3 px-4 border-b border-gray-200 hover:bg-gray-50 transition-colors;
+  }
+}
+
+@layer utilities {
+  /* Color utilities */
+  .bg-primary {
+    background-color: rgb(var(--primary));
+  }
+  .bg-secondary {
+    background-color: rgb(var(--secondary));
+  }
+  .bg-accent {
+    background-color: rgb(var(--accent));
+  }
+  .bg-danger {
+    background-color: rgb(var(--destructive));
+  }
+  .bg-success {
+    background-color: rgb(var(--success-old));
+  }
+
+  .text-primary {
+    color: rgb(var(--primary));
+  }
+  .text-secondary {
+    color: rgb(var(--secondary));
+  }
+  .text-accent {
+    color: rgb(var(--accent));
+  }
+  .text-danger {
+    color: rgb(var(--destructive));
+  }
+  .text-success {
+    color: rgb(var(--success-old));
+  }
+
+  .border-primary {
+    border-color: rgb(var(--primary));
+  }
+  .border-accent {
+    border-color: rgb(var(--accent));
+  }
+
+  /* Effects */
+  .animate-shine {
+    animation: shine 2s infinite;
+  }
+
+  .backdrop-storm {
+    backdrop-filter: blur(8px);
+  }
+
+  /* Layout */
+  .container-padded {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Add these new background styles with increased visibility */
+  .storm-bg {
+    background-color: #f8fafc;
+    background-image: radial-gradient(circle at 25% 25%, rgba(30, 58, 138, 0.08) 1%, transparent 10%),
+      radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.08) 1%, transparent 10%),
+      linear-gradient(to bottom, rgba(30, 58, 138, 0.05) 0%, transparent 100%);
+    background-size: 50px 50px, 50px 50px, 100% 100%;
+    background-attachment: fixed;
+  }
+
+  .subtle-grid {
+    background-image: linear-gradient(#f1f5f9 1px, transparent 1px),
+      linear-gradient(to right, #f1f5f9 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .storm-particles {
+    position: relative;
+  }
+
+  .storm-particles::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231e3a8a' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    opacity: 0.8;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .animated-weather {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: weather-shine 15s infinite linear;
+  }
+
+  @keyframes weather-shine {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Add a more visible diagonal pattern */
+  .diagonal-pattern {
+    background-image: linear-gradient(135deg, #f0f9ff 25%, transparent 25%),
+      linear-gradient(225deg, #f0f9ff 25%, transparent 25%), linear-gradient(45deg, #f0f9ff 25%, transparent 25%),
+      linear-gradient(315deg, #f0f9ff 25%, #ffffff 25%);
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+    background-repeat: repeat;
+  }
+
+  /* New wave pattern background */
+  .wave-pattern {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264.888-.14 1.24.19 1.64.39 1.85.39h1.87c.698-.0.088-.09.923-.51 1.548-.99 1.54-.99 2.67-.99 1.134.0 1.83-.09 2.58-.09 1.24-.0 1.68.14 1.82.14.14.0.49.05.89-.14 1.07-.54 1.33-.54 1.81-.54 1.07-.0 2.14.29 2.14.29.77.25 1.34.25 1.34.25.5.0 1.8-.25 1.8-.25.72-.18.72-.18 1.34-.18.77.0.77.0 1.34.18.72.18.72.18 1.87.18 1.07-.0 1.07-.0 1.8-.18 1.07-.29 1.07-.29 2.15-.29.36.0.36.0.71.14.54.25.54.25 1.17.25.54.0.54.0 1.17-.25.54-.14.54-.14.89-.14 1.07-.0 1.07-.0 2.14.29.72.18.72.18 1.34.18.5.0.5.0 1.8-.18.5-.0.5-.0 1.34-.25.5-.0.5-.0 2.14-.29 1.07-.0 1.07-.0 1.81.54.5.25.5.25.89.14.36-.0.36-.0 1.34-.14 1.96-.0 1.96-.0 2.67.99.36.54.36.54.89.51 1.07-.09 1.07-.09 1.87-.09 1.07-.0 1.07-.0 2.14.09 1.07.09 1.07.09 1.8.09.72.0.72.0 1.34.14.54.14.54.14.89.39.36.25.36.25.88.14 1.07-.29 1.07-.29 1.87-.29.36.0.36.0.88.14.5.14.5.14.89.39.36.25.36.25.89.14.5-.14.5-.14.89-.39.36-.25.36-.25.89-.14.36.0.36.0 1.78.29.54.14.54.14.89-.14.5-.39.5-.39.89-.39.36-.0.36-.0 1.34.14 1.96.29 1.96.29 2.8-.14.5-.25.5-.25.89-.14.36.0.36.0 1.34.14 1.96.29 1.96.29 2.67-.99.72-.89.72-.89 1.34-.89.54.0.54.0 1.17.89.72.89.72.89 1.34.89.54.0.54.0 1.17-.89.72-.89.72-.89 1.34-.89.54.0.54.0 1.17.89.72.89.72.89 1.34.89.54.0.54.0 1.17-.89.72-.89.72-.89 1.34.89' fill='%23f1f5f9' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 100px 20px;
+    background-repeat: repeat;
+  }
+}
+
+/* Animation for mobile CTA buttons */
+@keyframes subtle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes subtle-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.animate-subtle-bounce {
+  animation: subtle-bounce 3s ease-in-out infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+/* Add this import at the end of your globals.css */
+@import "./ab-test.css";
