@@ -78,13 +78,6 @@ export default function Home() {
         <div className="relative z-10 pt-0 pb-20 md:pt-0 md:pb-28">
           <div className="container">
             <div className="max-w-3xl">
-              <div className="inline-block bg-yellow-500 text-gray-900 px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-md animate-subtle-pulse">
-                <span className="flex items-center">
-                  <AlertTriangle className="h-4 w-4 mr-2" />
-                  HURRICANE SEASON SPECIAL OFFER
-                </span>
-              </div>
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
                 Storm-Proof Your Property <span className="text-yellow-400">Before It's Too Late</span>
               </h1>
@@ -379,7 +372,6 @@ export default function Home() {
                 <span className="text-yellow-500 underline decoration-2 decoration-yellow-500">Strongest Fences</span>{" "}
                 in Central Florida
               </h2>
-              <p className="text-gray-700">Our exclusive 25-year warranty covers everything other companies won't:</p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 bg-green-50 p-4 rounded-lg border border-green-100 shadow-sm">
                   <div className="rounded-full bg-green-100 p-1.5 text-green-600 mt-0.5">
