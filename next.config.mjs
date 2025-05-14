@@ -12,8 +12,9 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     unoptimized: true,
   },
+  // Remove the optimizeCss experimental feature that requires critters
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Removing this line as it requires critters
     optimizePackageImports: ['lucide-react'],
   },
   // Add headers for additional security and performance
