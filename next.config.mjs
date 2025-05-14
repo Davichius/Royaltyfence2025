@@ -12,10 +12,10 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     unoptimized: true,
   },
-  // Remove the optimizeCss experimental feature that requires critters
+  // Remove experimental features
   experimental: {
     // optimizeCss: true, // Removing this line as it requires critters
-    optimizePackageImports: ['lucide-react'],
+    // optimizePackageImports: ['lucide-react'], // Disabling this as well to simplify
   },
   // Add headers for additional security and performance
   async headers() {
